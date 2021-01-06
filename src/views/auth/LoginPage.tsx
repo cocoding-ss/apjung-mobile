@@ -1,5 +1,4 @@
 import React from 'react';
-import {Button, Text} from "react-native";
 import {Actions} from "react-native-router-flux";
 
 import styled from "styled-components/native";
@@ -58,26 +57,23 @@ const RegisterButtonText = styled.Text`
     color: white;
 `;
 
-interface Props {}
-interface State {}
-class LoginPage extends React.Component<Props, State> {
-    render() {
-        return (
-            <>
-                <Container>
-                    <Input placeholder={"이메일"} />
-                    <Input placeholder={"비밀번호"} />
-                    <LoginButton onPress={() => { Actions.replace("app"); }}>
-                        <LoginButtonText>로그인</LoginButtonText>
-                    </LoginButton>
+const LoginPage = () => {
+    return (
+        <>
+            <Container>
+                <Input placeholder={"이메일"} />
+                <Input placeholder={"비밀번호"} />
+                <LoginButton onPress={() => { Actions.replace("app"); }}>
+                    <LoginButtonText>로그인</LoginButtonText>
+                </LoginButton>
 
-                    <RegisterButton>
-                        <RegisterButtonText>회원가입</RegisterButtonText>
-                    </RegisterButton>
-                </Container>
-            </>
-        );
-    }
-}
+                <RegisterButton>
+                    <RegisterButtonText>회원가입</RegisterButtonText>
+                </RegisterButton>
+            </Container>
+        </>
+    );
+};
 
 export default LoginPage;
+

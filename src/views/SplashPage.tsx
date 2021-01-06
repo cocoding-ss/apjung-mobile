@@ -1,24 +1,19 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Text} from "react-native";
 import {Actions} from "react-native-router-flux";
 
-interface Props {}
-interface State {}
-class SplashPage extends React.Component<Props, State> {
-    async componentDidMount() {
-        await setTimeout(() => {
+const SplashPage = () => {
+    useEffect(() => {
+        setTimeout(() => {
             Actions.replace("login");
         }, 2000);
-    }
+    });
 
-    render() {
-        return (
-            <>
-                <Text>Splash</Text>
-            </>
-        )
-    };
+    return (
+        <>
+            <Text>Splash</Text>
+        </>
+    )
 }
-
 
 export default SplashPage;
