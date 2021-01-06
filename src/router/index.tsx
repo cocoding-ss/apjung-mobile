@@ -1,10 +1,15 @@
 import React from "react";
 import {Actions, Scene, Router, Stack} from "react-native-router-flux";
-import Login from "../views/auth/Login";
+import LoginPage from "../views/auth/LoginPage";
+import SplashPage from "../views/SplashPage";
+import ShopPage from "../views/shops/ShopPage";
+import MyPage from "../views/mypage/MyPage";
+import PinPage from "../views/pin/PinPage";
 
 const scenes = Actions.create(
     <Scene key="root">
-        <Scene key="login" component={Login} initial={true} hideNavBar={true} />
+        <Scene key="splash" component={SplashPage} init={true} hideNavBar={true} />
+        <Scene key="login" component={LoginPage} hideNavBar={true} />
 
         <Scene
             key="app"
@@ -12,10 +17,9 @@ const scenes = Actions.create(
             headerMode="none"
             hideNavBar={true}
             wrap={false} >
-            <Scene key="test1" component={Login} hideNavBar={true} />
-            <Scene key="test2" component={Login} hideNavBar={true} />
-            <Scene key="test3" component={Login} hideNavBar={true} />
-            <Scene key="test4" component={Login} hideNavBar={true} />
+            <Scene key="shop" init={true} component={ShopPage} hideNavBar={true} />
+            <Scene key="pin" component={PinPage} hideNavBar={true} />
+            <Scene key="mypage" component={MyPage} hideNavBar={true} />
         </Scene>
     </Scene>
 );

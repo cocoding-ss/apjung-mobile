@@ -18,7 +18,8 @@
     "react-native-router-flux": "^4.2.0",
     "react-native-screens": "^2.16.1",
     "react-redux": "^7.2.2",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -27,9 +28,12 @@
     "@types/jest": "^25.2.3",
     "@types/react-native": "^0.63.2",
     "@types/react-test-renderer": "^16.9.2",
+    "@types/styled-components": "^5.1.7",
+    "@types/styled-components-react-native": "^5.1.0",
     "@typescript-eslint/eslint-plugin": "^2.27.0",
     "@typescript-eslint/parser": "^2.27.0",
     "babel-jest": "^25.1.0",
+    "babel-plugin-styled-components": "^1.12.0",
     "eslint": "^6.5.1",
     "jest": "^25.1.0",
     "metro-react-native-babel-preset": "^0.59.0",
