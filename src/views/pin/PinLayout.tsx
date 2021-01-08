@@ -1,13 +1,12 @@
 import React from "react";
 import {Text} from "react-native";
 
-const RegisterPage = () => {
+const PinLayout = () => {
     return (
         <>
-            <Text>Register</Text>
+            <Text>Pin</Text>
         </>
     );
 };
 
-
-export default RegisterPage;
+export default PinLayout;

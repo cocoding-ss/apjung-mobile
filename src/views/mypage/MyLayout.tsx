@@ -1,12 +1,12 @@
 import React from "react";
 import {Text} from "react-native";
 
-const PinPage = () => {
-    return (
+const MyLayout = ()  => {
+     return (
         <>
-            <Text>Pin</Text>
+            <Text>MyPage</Text>
         </>
     );
 };
 
-export default PinPage;
+export default MyLayout;

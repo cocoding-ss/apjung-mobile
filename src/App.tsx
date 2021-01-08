@@ -20,6 +20,10 @@ import Reducer from './store/reducer';
 import {Provider} from "react-redux";
 import {createStore} from "redux";
 
+import Axios from 'axios';
+
+Axios.defaults.baseURL = 'https://api.apjung.xyz'
+
 declare const global: {HermesInternal: null | {}};
 
 const App = () => {

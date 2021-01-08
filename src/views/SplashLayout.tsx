@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import {Text} from "react-native";
 import {Actions} from "react-native-router-flux";
 
-const SplashPage = () => {
+const SplashLayout = () => {
     useEffect(() => {
         setTimeout(() => {
             Actions.replace("login");
@@ -16,4 +16,4 @@ const SplashPage = () => {
     )
 }
 
-export default SplashPage;
+export default SplashLayout;

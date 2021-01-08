@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Actions} from "react-native-router-flux";
 
 import styled from "styled-components/native";
+
+import AuthApiService from "../../service/api/AuthApiService";
 
 const Container = styled.View`
     flex: 1;
@@ -57,17 +59,28 @@ const RegisterButtonText = styled.Text`
     color: white;
 `;
 
-const LoginPage = () => {
+const tryLogin = (email: string, password: string) => {
+    const authApiService = new AuthApiService();
+    authApiService.login({
+        email: email,
+        password: password
+    });
+}
+
+const LoginLayout = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     return (
         <>
             <Container>
-                <Input placeholder={"이메일"} />
-                <Input placeholder={"비밀번호"} />
-                <LoginButton onPress={() => { Actions.replace("app"); }}>
+                <Input placeholder={"이메일"} value={email} onChangeText={(inputEmail: string) => setEmail(inputEmail)} autoCapitalize="none" />
+                <Input placeholder={"비밀번호"} value={password} onChangeText={(inputPassword: string) => setPassword(inputPassword)} autoCapitalize="none" />
+                <LoginButton onPress={() => {tryLogin(email, password)}}>
                     <LoginButtonText>로그인</LoginButtonText>
                 </LoginButton>
 
-                <RegisterButton>
+                <RegisterButton onPress={() => { Actions.register() }}>
                     <RegisterButtonText>회원가입</RegisterButtonText>
                 </RegisterButton>
             </Container>
@@ -75,5 +88,5 @@ const LoginPage = () => {
     );
 };
 
-export default LoginPage;
+export default LoginLayout;
 
