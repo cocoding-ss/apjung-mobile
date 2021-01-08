@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import CredentialsService from "../credentials/CredentialsService";
+import CredentialsService from "./CredentialsService";
 import {Actions} from "react-native-router-flux";
 
 type RegisterRequest = {
@@ -65,7 +65,10 @@ class AuthService implements AuthServiceI {
 
     async me(): Promise<MeResponse | void> {
         try {
-           return (await Axios.get('/auth/me')).data;
+            const res = await Axios.get('/auth/me');
+
+            console.log(res.data);
+            return res.data;
         } catch (e) {
             Actions.replace('login');
         }
@@ -75,10 +78,13 @@ class AuthService implements AuthServiceI {
         const token : string | null = await this.credentialsService.getAccessToken()
 
         if (token) {
+            console.log(token);
             this.credentialsService.setHeader(token);
             const res = await this.me();
-            Actions.replace('app');
-        } else {
+
+            if (res) {
+                Actions.replace('app');
+            }} else {
             Actions.replace('login');
         }
     }

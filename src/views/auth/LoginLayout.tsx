@@ -3,7 +3,7 @@ import {Actions} from "react-native-router-flux";
 
 import styled from "styled-components/native";
 
-import AuthService from "../../service/api/AuthService";
+import AuthService from "../../service/AuthService";
 
 const Container = styled.View`
     flex: 1;

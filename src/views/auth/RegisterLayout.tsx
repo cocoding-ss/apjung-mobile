@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Text} from "react-native";
 import styled from "styled-components/native";
-import AuthService from "../../service/api/AuthService";
+import AuthService from "../../service/AuthService";
 
 const TopNav = styled.View`
     align-items: center;
