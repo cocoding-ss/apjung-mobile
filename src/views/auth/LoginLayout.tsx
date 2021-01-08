@@ -3,7 +3,7 @@ import {Actions} from "react-native-router-flux";
 
 import styled from "styled-components/native";
 
-import AuthApiService from "../../service/api/AuthApiService";
+import AuthService from "../../service/api/AuthService";
 
 const Container = styled.View`
     flex: 1;
@@ -60,7 +60,7 @@ const RegisterButtonText = styled.Text`
 `;
 
 const tryLogin = (email: string, password: string) => {
-    const authApiService = new AuthApiService();
+    const authApiService = new AuthService();
     authApiService.login({
         email: email,
         password: password

@@ -19,12 +19,22 @@ type LoginResponse = {
     tokenType: string,
 }
 
-interface AuthApiServiceI {
-    register(request: RegisterRequest) : void;
-    login(request: LoginRequest) : void;
+type MeResponse = {
+    email: string,
+    name: string,
+    mobile: string,
+    roles: string[],
+    emailAuth: boolean,
 }
 
-class AuthApiService implements AuthApiServiceI {
+interface AuthServiceI {
+    register(request: RegisterRequest) : Promise<void>;
+    login(request: LoginRequest) : Promise<void>;
+    me() : Promise<MeResponse | void>;
+    autoLogin() : void;
+}
+
+class AuthService implements AuthServiceI {
     private credentialsService : CredentialsService;
 
     constructor() {
@@ -45,13 +55,33 @@ class AuthApiService implements AuthApiServiceI {
             const res : LoginResponse = (await Axios.post('/auth/login', request)).data;
 
             await this.credentialsService.storeAccessToken(res.token);
-            Axios.defaults.headers['Authorization'] = `${res.tokenType} ${res.token}`;
+            this.credentialsService.setHeader(res.token);
             Actions.replace('app');
         } catch (e) {
             console.log('======= 로그인에 실패했습니다 =======');
             console.log(e);
         }
     }
+
+    async me(): Promise<MeResponse | void> {
+        try {
+           return (await Axios.get('/auth/me')).data;
+        } catch (e) {
+            Actions.replace('login');
+        }
+    }
+
+    async autoLogin() {
+        const token : string | null = await this.credentialsService.getAccessToken()
+
+        if (token) {
+            this.credentialsService.setHeader(token);
+            const res = await this.me();
+            Actions.replace('app');
+        } else {
+            Actions.replace('login');
+        }
+    }
 }
 
-export default AuthApiService;
+export default AuthService;

@@ -1,13 +1,10 @@
 import React, {useEffect} from "react";
 import {Text} from "react-native";
-import {Actions} from "react-native-router-flux";
+import AuthService from "../service/api/AuthService";
 
 const SplashLayout = () => {
-    useEffect(() => {
-        setTimeout(() => {
-            Actions.replace("login");
-        }, 2000);
-    });
+    const authService = new AuthService();
+    authService.autoLogin();
 
     return (
         <>

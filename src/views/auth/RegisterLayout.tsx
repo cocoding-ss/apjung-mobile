@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Text} from "react-native";
 import styled from "styled-components/native";
-import AuthApiService from "../../service/api/AuthApiService";
+import AuthService from "../../service/api/AuthService";
 
 const TopNav = styled.View`
     align-items: center;
@@ -52,7 +52,7 @@ const RegisterLayout = () => {
     const [name, setName] = useState('');
     const [mobile, setMobile] = useState('');
 
-    const authApiService = new AuthApiService();
+    const authApiService = new AuthService();
 
     return (
         <>
