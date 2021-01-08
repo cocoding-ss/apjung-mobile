@@ -22,7 +22,15 @@ import {createStore} from "redux";
 
 import Axios from 'axios';
 
-Axios.defaults.baseURL = 'https://api.apjung.xyz'
+Axios.defaults.baseURL = 'https://api.apjung.xyz';
+Axios.interceptors.response.use(
+    function (response) {
+        return response;
+    },
+    function (error) {
+        return Promise.reject(error);
+    }
+)
 
 declare const global: {HermesInternal: null | {}};
 

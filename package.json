@@ -10,12 +10,15 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.13.2",
     "@types/axios": "^0.14.0",
+    "@types/react-native-keychain": "^3.1.0",
     "@types/react-redux": "^7.1.15",
     "axios": "^0.21.1",
     "react": "16.13.1",
     "react-native": "0.63.3",
     "react-native-gesture-handler": "^1.9.0",
+    "react-native-keychain": "^6.2.0",
     "react-native-reanimated": "^1.13.2",
     "react-native-router-flux": "^4.2.0",
     "react-native-screens": "^2.16.1",
