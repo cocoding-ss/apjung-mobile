@@ -30,10 +30,12 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>localhost</key>
+			<key>apjung.xyz</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
+				<key>NSIncludesSubdomains</key>
+                <true/>
 			</dict>
 		</dict>
 	</dict>

@@ -9,7 +9,7 @@ type ShopSearchRequest = {
     pageNum: number,
     pageSize: number,
     orderType: string,
-    filter: ShopSearchFilter | object,
+    'filter.name': string,
 }
 
 type ShopSearchItem = {
@@ -32,7 +32,6 @@ class ShopService implements ShopServiceI {
                 params: request
             });
 
-            console.log(res.data);
             return res.data;
         } catch (e) {
             console.log(e);

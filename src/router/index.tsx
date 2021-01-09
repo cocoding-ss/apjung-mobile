@@ -2,7 +2,7 @@ import React from "react";
 import {Actions, Scene, Router, Stack} from "react-native-router-flux";
 import LoginLayout from "../views/auth/LoginLayout";
 import SplashLayout from "../views/SplashLayout";
-import ShopLayout from "../views/shops/ShopLayout";
+import ShopLayout from "../views/shop/ShopLayout";
 import MyLayout from "../views/mypage/MyLayout";
 import PinLayout from "../views/pin/PinLayout";
 import RegisterLayout from "../views/auth/RegisterLayout";
